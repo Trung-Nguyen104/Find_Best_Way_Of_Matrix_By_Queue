@@ -105,11 +105,14 @@ void bfs(int maze[][5], int path[][5], int row, int col, int sx, int sy, int ex,
 	        int ny = cy + dy[i];
 	        if (nx >= 0 && nx < row && ny >= 0 && ny < col && maze[nx][ny] != 1 && path[nx][ny] == -1) {
 	            path[nx][ny] = path[cx][cy] + 1;
+			if (maze[nx][ny] == 2){
+	            		print_path(path, ex, ey);
+	        		return;
+			}
 	            enqueue(q, nx, ny);
 	        }
 	    }
-}
-print_path(path, ex, ey);
+	}
 }
 
 int main() {
